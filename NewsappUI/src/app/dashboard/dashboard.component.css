@@ -1,0 +1,19 @@
+.mat-toolbar{
+  color: aquamarine;
+  background-color:cornflowerblue  
+}
+
+.mat-button-logout{
+    align-items: flex-end
+}
+
+.navbar-spacer {
+  flex: 1 1 auto;
+}
+
+.header {
+  min-width: 319px;
+  width: 100%;
+  flex-shrink: 0;
+  flex-grow: 0;
+}

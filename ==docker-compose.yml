@@ -1,0 +1,94 @@
+version: '3'
+services:
+  userservice:
+    image: userservice:v1
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaServer
+      - mysql
+    ports:
+      - 9111:9111
+    healthcheck:
+      test: "exit 0"  
+      
+  favouriteservice:
+    image: favouriteservice:v1
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaServer
+      - mongo
+      - rabbitmq
+    ports:
+      - 9112:9112
+    healthcheck:
+      test: "exit 0"
+
+  articlerecommendservice:
+    image: articlerecommendservice:v1
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaServer
+      - mongo
+      - rabbitmq
+    ports:
+      - 9113:9113
+    healthcheck:
+      test: "exit 0"
+
+  eurekaServer:
+    image: eurekaservice:v1
+    restart: always
+    network_mode: host
+    ports:
+      - 8761:8761      
+    healthcheck:
+      test: "exit 0" 
+  
+  zuulservice:
+    image: zuulservice:v1
+    restart: always
+    network_mode: host
+    depends_on:
+      - eurekaServer
+      - userservice
+      - favouriteservice
+      - articlerecommendservice
+    ports:
+      - 8765:8765
+    healthcheck:
+      test: "exit 0"      
+
+  newsapp:
+    image: newsapp:v1
+    network_mode: host
+    container_name: angular-docker
+    ports:
+      - 8080:8080 
+    healthcheck:
+      test: "exit 0"
+  mysql:
+    image: mysql:5.5
+    network_mode: host
+    container_name: mysql_container
+    ports:
+      - 3306:3306    
+    environment:
+      MYSQL_DATABASE: userDb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+
+  mongo:
+    image: mongo:3.4-jessie
+    network_mode: host
+    container_name: mongo
+    ports:
+      - 27017:27017    
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"   

@@ -1,0 +1,19 @@
+<strong *ngIf="successMessage" class="error-message">{{successMessage}}</strong>
+
+<form class="login-form">
+  <mat-form-field>
+    <input class = "username" matInput type="text" placeholder="Username" name = "username" [formControl]="username">
+    <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">Username Cannot Be Left Blank</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input class = "password" matInput type="password" placeholder="Password" name = "password" [formControl]="password">
+    <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+      <mat-error *ngIf="password.errors.required">Password Cannot Be Left Blank</mat-error>
+      <!-- <mat-error *ngIf="password.errors.minlength">Password Must Have Minimum 6 Characters</mat-error> -->
+    </mat-error>
+  </mat-form-field>
+    <button class="login-button" [disabled]="(username.invalid || password.invalid)" (click)="login()" mat-raised-button color="primary" >Login</button><br>
+		<button class="register-button" mat-raised-button color="primary"  (click)="registerUser()">Register</button>  
+</form>
+ 
+

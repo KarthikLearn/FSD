@@ -1,0 +1,7 @@
+<strong *ngIf="successMessage" class="error-message">{{successMessage}}</strong>
+<div >
+    
+    <app-newsarticle [news] = "newsingle" [isFavourite] = "isFavourite" [isFavRemove] = "isFavRemove" 
+    *ngFor="let newsingle of news" (message)="favouriteMessage($event)"></app-newsarticle>
+
+</div>

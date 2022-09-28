@@ -1,0 +1,29 @@
+<mat-toolbar>
+    <span>Registration</span>
+  </mat-toolbar>
+  <mat-card-content>
+        <label class="error-message">{{ errMessage }}</label>
+    <form class="my-form">
+      <div class="reg-input-fields">
+      <mat-form-field>
+        <input [(ngModel)]="user.userId"  matInput  type="text" name = "UserId" placeholder="User Id">
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="user.firstName"  matInput  type="text" name = "FirstName" placeholder="First Name">
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="user.lastName"  matInput  type="text" name = "LastName" placeholder="Last Name">
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="user.userEmail"  matInput  type="email" name = "Email" placeholder="Email">
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="user.userPassword"  matInput  type="password" name = "Password" placeholder="Password">
+      </mat-form-field>
+    </div>
+    <div>
+        <button class="reg-reg-button" (click)="register()" mat-raised-button color="primary">Register</button><br>
+        <button class="reg-cancel-button" (click)="cancel()" mat-raised-button color="primary">Cancel</button>
+    </div>
+</form>
+</mat-card-content>

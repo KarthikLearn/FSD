@@ -1,0 +1,24 @@
+.login-form{
+    border:2px solid navy;
+    padding:20px;
+    margin:auto;
+    width:40vw;
+    margin-top:50px;
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    width:30vw;
+    flex-direction: row !important;
+    margin:auto;
+}
+.login-button{
+    flex-direction: row !important;
+}
+.register-button{
+    flex-direction: row !important;
+}
+.error-message{
+align-content: center
+}

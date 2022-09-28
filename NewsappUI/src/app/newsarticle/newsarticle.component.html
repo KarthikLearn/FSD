@@ -1,0 +1,23 @@
+  <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{news.title}}</mat-card-title>
+          
+        </mat-card-header>
+        <!--<img mat-card-image src={{news.urlToImage}} > -->
+        <img mat-card-image src = {{news.urlToImage}} >
+        <mat-card-content>
+          <p>
+            {{ news.description }}
+          </p>
+        </mat-card-content> 
+        <mat-card-footer class="fav-count" *ngIf="!isFavCount">
+         Favourite count : {{news.favouriteCount}}
+        </mat-card-footer>
+        <mat-card-actions class="example-button">
+          <button  clsss = "mat-button" mat-button (click)="addtofavourite(news)" *ngIf="!isFavourite" >Add Favourite</button>
+          <button  clsss = "mat-button" mat-button (click)="removefavourite(news)" *ngIf="!isFavRemove" >Remove Favourite</button>
+          <button  clsss = "mat-button" mat-button (click)="openNews(news)">Click for more info</button>
+        </mat-card-actions>
+      </mat-card>
+      
+      

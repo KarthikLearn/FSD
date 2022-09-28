@@ -1,0 +1,19 @@
+<div>
+<strong  class="error-message">{{message}}</strong>
+</div>
+<form class="my-form">
+    <div class="news-input">
+    <mat-form-field>
+      <input [(ngModel)]="searchNews"  matInput  type="text" name = "searchNews" 
+      (ngModelChange)="searchNewsTitle($event)"
+      placeholder="Enter News title">
+    </mat-form-field>
+</div>
+</form>
+<div >
+    
+    <app-newsarticle [news] = "newsingle" [isFavCount] = "isFavCount" [isFavRemove] = "isFavRemove"
+    *ngFor="let newsingle of filterNews" (message)="favouriteMessage($event)"></app-newsarticle>
+
+</div>
+

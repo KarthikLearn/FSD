@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="mat-toolbar">
+  <mat-toolbar-row>
+
+    <button class="news-button" mat-button [routerLink]="['view/news']">Search</button>
+    <button class="favourite-button" mat-button [routerLink]="['view/favourite']">Favourite</button>
+    <button class="recommended-button" mat-button [routerLink]="['view/recommended']">Recommended</button>
+    <button class="filler" mat-button (click)="userLogout()">Logout</button>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

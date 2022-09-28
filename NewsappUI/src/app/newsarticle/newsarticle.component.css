@@ -1,0 +1,42 @@
+/* img{
+    width: 20;
+    height: 20;
+} */
+
+mat-card img,mat-card-image{
+    width : 100px;
+    height : 100px;
+    align-content: center;
+    justify-content: center;
+    display:flex;
+    align-items:center;
+    
+}
+.example-card{
+    border: 2pt;
+    border-block-color: blue;
+    background:gainsboro;
+    color: white;
+    max-width: 400px;
+    max-height: 800px;
+    display: inline-flex;
+    width:75%;
+    height:75%;
+    margin:30px;
+    margin-top:50px;
+    flex-direction: column;
+    justify-content: center;
+    display:flex;
+    align-items:center;
+    flex: 1;
+}
+.fav-count{
+color:blue;
+flex-direction: column;
+}
+.mat-button{
+    margin:auto;
+    color: blue;
+    display: inline-flex;
+    align-self: auto;
+}
